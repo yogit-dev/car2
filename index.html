@@ -12,13 +12,13 @@
   <main id="app">
     <section id="lobby" class="screen">
       <div class="brand">YMGENV <span>DRIVE</span></div>
-      <p class="subtitle">Two drivers. One road. Real-time multiplayer.</p>
+      <p class="subtitle">Up to 8 drivers. One road. Real-time multiplayer.</p>
 
       <section id="homePanel" class="panel">
         <h1>Start a drive</h1>
         <div class="choice-grid">
           <button id="createBtn" class="choice primary">
-            <strong>Create room</strong><small>Host a game for one friend</small>
+            <strong>Create room</strong><small>Host a room for up to 7 friends</small>
           </button>
           <button id="showJoinBtn" class="choice">
             <strong>Join room</strong><small>Enter your friend's room code</small>
@@ -36,16 +36,14 @@
 
       <section id="roomPanel" class="panel hidden">
         <h2 id="roomHeading">Your room</h2>
-        <p class="muted">Your friend must enter this exact code to join.</p>
+        <p class="muted">Everyone joining must enter this exact room code.</p>
         <div class="room-code-row">
           <div id="roomCode" class="room-code">------</div>
           <button id="copyCodeBtn" class="small-btn">Copy</button>
         </div>
         <p id="connectionStatus" class="status">Waiting for your friend…</p>
-        <div class="player-slots">
-          <div class="slot"><span class="dot"></span><span id="hostSlot">Host · You</span></div>
-          <div class="slot"><span class="dot waiting" id="guestDot"></span><span id="guestSlot">Player 2 · Waiting</span></div>
-        </div>
+        <div id="playerSlots" class="player-slots"></div>
+        <p id="playerCount" class="muted center">1 / 8 players</p>
         <button id="continueBtn" class="primary wide" disabled>Choose your car</button>
         <button id="cancelRoomBtn" class="backBtn">Cancel room</button>
       </section>
@@ -69,7 +67,7 @@
         <button id="backToRoomBtn" class="backBtn">Back to room</button>
       </section>
 
-      <p class="footnote">Room capacity: 2 players total · Powered by PeerJS</p>
+      <p class="footnote">Room capacity: 8 players total · Powered by PeerJS</p>
     </section>
 
     <section id="game" class="hidden">
@@ -79,8 +77,7 @@
         <div class="game-info"><span id="gameRoom">ROOM ------</span><span id="speedReadout">0 KM/H</span></div>
         <button id="settingsBtn" class="settings-btn" aria-label="Settings">⚙</button>
       </header>
-      <div class="player-tag you">YOU</div>
-      <div class="player-tag opponent">PLAYER 2</div>
+      <div id="playerTagYou" class="player-tag you">YOU · 1 DRIVER</div>
       <div id="mobileControls" class="mobile-controls hidden">
         <div class="steer-controls">
           <button data-control="left" aria-label="Steer left">◀</button>
